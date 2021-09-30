@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Calendar } from "@progress/kendo-react-dateinputs";
+import "@progress/kendo-theme-default/dist/all.css";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [date, setDate] = useState(new Date());
+
+  const handleChange = (event) => {
+    console.log(event.value);
+    setDate(event.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Calendar value={date} onChange={handleChange} />;
+      <h1>Selected date: {date?.toDateString()}</h1>
     </div>
   );
-}
+};
 
 export default App;
