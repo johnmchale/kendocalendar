@@ -10,7 +10,7 @@
 
 # production
 # n.b. JMH commenting out build folder since we do want this for and Azure Web App service (original kind) 
-# /build
+/build
 
 # misc
 .DS_Store
